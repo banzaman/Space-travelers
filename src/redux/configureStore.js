@@ -1,22 +1,16 @@
-import {
-  applyMiddleware, compose, legacy_createStore as createStore, combineReducers,
-} from 'redux';
-
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import rockets from './rockets/Rockets';
+import missions from './missions/Missions';
 
-import missionsReducer from './missions/Missions';
-
-const rootReducer = combineReducers({
-  missions: missionsReducer,
+const reducer = combineReducers({
+  rockets,
+  missions,
 });
 
-const initialState = {};
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk),
+);
 
-const middleware = [thunk];
-
-export default () => {
-  const store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware)));
-  return {
-    store,
-  };
-};
+export default store;

@@ -1,0 +1,11 @@
+.rocketEl {
+  display: flex;
+}
+
+.rocketImg {
+  width: 250px;
+}
+
+.rocketImg img {
+  width: 250px;
+}
