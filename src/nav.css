@@ -5,17 +5,17 @@ nav {
   margin-left: 50px;
 }
 
-  h1 {
+h1 {
   font-size: 2.1rem;
   margin: 0;
 }
 
-  .logo {
+.logo {
   width: 80px;
   height: 80px;
 }
 
-  .ul {
+.ul {
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -26,7 +26,7 @@ nav {
   text-decoration: none;
 }
 
-  .link {
+.link {
   text-decoration: none;
   color: #3077ff;
 }
