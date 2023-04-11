@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import '../nav.css';
 
 function Nav() {
   return (
@@ -21,7 +22,7 @@ function Nav() {
           </NavLink>
           <NavLink
             className="link"
-            to="/"
+            to="/missions"
             style={({ isActive }) => ({
               textDecoration: isActive ? 'underline' : 'none',
               color: isActive ? '#194498' : 'inherit',
@@ -31,7 +32,7 @@ function Nav() {
           </NavLink>
           <NavLink
             className="link"
-            to="/"
+            to="/profile"
             style={({ isActive }) => ({
               textDecoration: isActive ? 'underline' : 'none',
               color: isActive ? '#194498' : 'inherit',
