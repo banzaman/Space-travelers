@@ -40,6 +40,10 @@ ul li:nth-child(2) {
   border-right: 1px solid black;
 }
 
+li a {
+  color: #0290ff;
+}
+
 li a.active {
   text-decoration: underline;
 }
