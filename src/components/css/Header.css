@@ -43,5 +43,4 @@ ul li:nth-child(2) {
 
 li a.active {
   text-decoration: underline;
-  color: red;
 }
