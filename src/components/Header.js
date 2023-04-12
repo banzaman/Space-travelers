@@ -1,19 +1,19 @@
-import { NavLink } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './css/Header.css';
 import planet from '../assets/planet.png';
 
 export default function Header() {
   return (
     <header>
       <nav>
-        <div className="site-title">
-          <NavLink to="/">
-            <img src={planet} alt="Space Logo" />
-          </NavLink>
-        </div>
+        <Link to="/">
+          <img src={planet} alt="Space Logo" />
+          <span> Space Travelers&apos; Hub</span>
+        </Link>
         <ul>
-          <li><NavLink to="/rockets">Rockets</NavLink></li>
-          <li><NavLink to="/missions">Missions</NavLink></li>
-          <li><NavLink>My Profile</NavLink></li>
+          <li><Link to="/">Rockets</Link></li>
+          <li><Link to="/missions">Missions</Link></li>
+          <li><Link to="/profile">My Profile</Link></li>
         </ul>
       </nav>
     </header>
