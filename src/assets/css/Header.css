@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+nav img {
+  width: 40px;
+}
+
+nav h1 {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+ul li {
+  padding-inline: 1rem;
+}
+
+ul li:nth-child(2) {
+  border-right: 1px solid black;
+}
+
+li a {
+  color: #0290ff;
+}
+
+li a.active {
+  text-decoration: underline;
+}
