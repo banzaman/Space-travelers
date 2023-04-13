@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  mission: [],
+  missions: [],
   isLoading: true,
   error: null,
 };
@@ -21,6 +21,19 @@ export const getMissions = createAsyncThunk('missions/getMissions', async () => 
 const missionsSlice = createSlice({
   name: 'missions',
   initialState,
+  reducers: {
+    changeMission: (state, { payload }) => {
+      const newMissions = state.missions.map((mission) => {
+        if (mission.mission_id !== payload.id) { return { mission }; }
+        if (mission.reserved === true) {
+          return { ...mission, reserved: false };
+        }
+        return { ...mission, reserved: true };
+      });
+      state.missions = newMissions;
+    },
+  },
+
   extraReducers: (builder) => {
     builder
       .addCase(getMissions.pending, (state) => {
@@ -28,7 +41,7 @@ const missionsSlice = createSlice({
       })
       .addCase(getMissions.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.mission = action.payload;
+        state.missions = action.payload;
       })
       .addCase(getMissions.rejected, (state) => {
         state.isLoading = false;

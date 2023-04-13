@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Table from 'react-bootstrap/Table';
 import { getMissions } from '../redux/missions/missionsSlice';
 
 export default function Missions() {
-  const { mission, isLoading, error } = useSelector((state) => state.missions);
-  console.log(mission);
+  const { missions, isLoading, error } = useSelector((state) => state.missions);
+  console.log(missions);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMissions());
@@ -22,12 +23,25 @@ export default function Missions() {
   }
 
   return (
-    <div>
-      <ul>
-        <li>
-          Hello
-        </li>
-      </ul>
-    </div>
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Mission</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>{}</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {missions.map((mission) => (
+          <tr key={mission.mission_id}>
+            <td>{mission.mission_name}</td>
+            <td>{mission.description}</td>
+          </tr>
+        ))}
+
+      </tbody>
+    </Table>
   );
 }
