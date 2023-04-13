@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 import { getMissions } from '../redux/missions/missionsSlice';
 
 export default function Missions() {
   const { missions, isLoading, error } = useSelector((state) => state.missions);
-  console.log(missions);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMissions());
@@ -38,6 +38,8 @@ export default function Missions() {
           <tr key={mission.mission_id}>
             <td>{mission.mission_name}</td>
             <td>{mission.description}</td>
+            <td>Not a member</td>
+            <td><Button>Join Mission</Button></td>
           </tr>
         ))}
 
