@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
+import { Badge, Button, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import { getMissions } from '../redux/missions/missionsSlice';
+import '../assets/css/Mission.css';
 
 export default function Missions() {
   const { missions, isLoading, error } = useSelector((state) => state.missions);
@@ -13,37 +13,38 @@ export default function Missions() {
 
   if (isLoading) {
     return (
-      <h1>Loading...</h1>
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
     );
   }
   if (error) {
     return (
-      <div>Something went wrong! </div>
+      <Badge bg="danger">Something went wrong</Badge>
     );
   }
 
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th>{}</th>
-        </tr>
-      </thead>
-      <tbody>
-
-        {missions.map((mission) => (
-          <tr key={mission.mission_id}>
-            <td>{mission.mission_name}</td>
-            <td>{mission.description}</td>
-            <td>Not a member</td>
-            <td><Button>Join Mission</Button></td>
-          </tr>
-        ))}
-
-      </tbody>
-    </Table>
+    <>
+      <hr />
+      <section className="mission-container">
+        <div>
+          <h5 className="mission-name">Mission</h5>
+          <h5 className="description">Description</h5>
+          <h5 className="status">Status</h5>
+          <h5 className="join">{}</h5>
+        </div>
+        <ul>
+          {missions.map((mission) => (
+            <li key={mission.mission_id} className="mission-list">
+              <h5 className="mission-name">{mission.mission_name}</h5>
+              <p className="description">{mission.description}</p>
+              <span className="status"><Badge>Not a member</Badge></span>
+              <div className="join"><Button>Join Mission</Button></div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }

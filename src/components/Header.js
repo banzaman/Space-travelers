@@ -23,7 +23,7 @@ export default function Header() {
               Rockets
             </Link>
           </li>
-          <li>
+          <li className="separator">
             <Link
               to="/missions"
               onClick={() => setActive('missions')}
