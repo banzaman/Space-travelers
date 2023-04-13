@@ -1,7 +1,21 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 
-export default function MyProfile() {
+const MyProfilePage = () => {
+  const { rocketItems } = useSelector((store) => store.rockets);
+  const reserveRockets = rocketItems.filter((rocket) => rocket.reserved === true);
   return (
-    <div>MyProfile</div>
+    <div>
+      <hr />
+      <section className="myRockets">
+        <h2>My Rockets</h2>
+        {reserveRockets.map((rockets) => (
+          <li key={rockets.id}>
+            {rockets.name }
+          </li>
+        ))}
+      </section>
+    </div>
   );
-}
+};
+
+export default MyProfilePage;
