@@ -13,9 +13,16 @@ export default function Missions() {
 
   if (isLoading) {
     return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
+      <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        Loading...
+      </Button>
     );
   }
   if (error) {
