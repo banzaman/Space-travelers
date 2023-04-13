@@ -47,7 +47,7 @@ export default function Missions() {
               <h5 className="mission-name">{mission.mission_name}</h5>
               <p className="description">{mission.description}</p>
               <span className="status"><Badge bg="secondary">Not a member</Badge></span>
-              <div className="join"><Button>Join Mission</Button></div>
+              <div className="join"><Button variant="outline-secondary">Join Mission</Button></div>
             </li>
           ))}
         </ul>
