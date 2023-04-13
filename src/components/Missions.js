@@ -46,7 +46,7 @@ export default function Missions() {
             <li key={mission.mission_id} className="mission-list">
               <h5 className="mission-name">{mission.mission_name}</h5>
               <p className="description">{mission.description}</p>
-              <span className="status"><Badge>Not a member</Badge></span>
+              <span className="status"><Badge bg="secondary">Not a member</Badge></span>
               <div className="join"><Button>Join Mission</Button></div>
             </li>
           ))}
