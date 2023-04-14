@@ -5,7 +5,6 @@ const url = 'https://api.spacexdata.com/v3/rockets';
 
 const initialState = {
   rocketItems: [],
-  isReserve: false,
   isLoading: true,
 };
 
@@ -22,6 +21,16 @@ const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
+    reserveRocket: (state, action) => {
+      const newRocketItems = state.rocketItems.map((item) => {
+        if (item.id !== action.payload) { return item; }
+        if (item.reserved === true) {
+          return { ...item, reserved: false };
+        }
+        return { ...item, reserved: true };
+      });
+      state.rocketItems = newRocketItems;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,6 +42,7 @@ const rocketsSlice = createSlice({
           type: item.rocket_type,
           description: item.description,
           flickr_images: item.flickr_images,
+          reserved: false,
         }));
         state.rocketItems = rocketsData;
       })
