@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Badge, Button, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMissions } from '../redux/missions/missionsSlice';
+import { MemberShip, getMissions } from '../redux/missions/missionsSlice';
 import '../assets/css/Mission.css';
 
 export default function Missions() {
@@ -46,8 +46,16 @@ export default function Missions() {
             <li key={mission.mission_id} className="mission-list">
               <h5 className="mission-name">{mission.mission_name}</h5>
               <p className="description">{mission.description}</p>
-              <span className="status"><Badge bg="secondary">Not a member</Badge></span>
-              <div className="join"><Button variant="outline-secondary">Join Mission</Button></div>
+              <span className="status"><Badge bg={mission.reserved ? 'primary' : 'secondary'}>{mission.reserved ? 'Active Member' : 'NOT A MEMBER' }</Badge></span>
+              <div className="join">
+                <Button
+                  variant={mission.reserved ? 'outline-danger' : 'outline-secondary'}
+                  onClick={() => dispatch(MemberShip({ missions, id: mission.mission_id }))}
+                >
+                  {mission.reserved ? 'Leave Mission' : 'Join Mission' }
+                </Button>
+
+              </div>
             </li>
           ))}
         </ul>
