@@ -1,15 +1,10 @@
-import { useEffect } from 'react';
 import { Badge, Button, Spinner } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { MemberShip, getMissions } from '../redux/missions/missionsSlice';
+import { useSelector } from 'react-redux';
 import '../assets/css/Mission.css';
+import MissionItems from './MissionItems';
 
 export default function Missions() {
   const { missions, isLoading, error } = useSelector((state) => state.missions);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMissions());
-  }, [dispatch]);
 
   if (isLoading) {
     return (
@@ -42,20 +37,13 @@ export default function Missions() {
         </div>
         <ul>
           {missions.map((mission) => (
-            <li key={mission.mission_id} className="mission-list">
-              <h5 className="mission-name">{mission.mission_name}</h5>
-              <p className="description">{mission.description}</p>
-              <span className="status"><Badge bg={mission.reserved ? 'primary' : 'secondary'}>{mission.reserved ? 'Active Member' : 'NOT A MEMBER' }</Badge></span>
-              <div className="join">
-                <Button
-                  variant={mission.reserved ? 'outline-danger' : 'outline-secondary'}
-                  onClick={() => dispatch(MemberShip(mission.mission_id))}
-                >
-                  {mission.reserved ? 'Leave Mission' : 'Join Mission' }
-                </Button>
-
-              </div>
-            </li>
+            <MissionItems
+              key={mission.mission_id}
+              id={mission.mission_id}
+              name={mission.mission_name}
+              description={mission.description}
+              reserved={mission.reserved}
+            />
           ))}
         </ul>
       </section>
