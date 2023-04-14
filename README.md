@@ -96,18 +96,6 @@
 - **Linters,Stylelint**
 - **esLint**
 
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
-> Features I used in this project mainly:
-
-- **React**
-- **CSS**
-- **JSX**
-- **Linters,Stylelint**
-- **esLint**
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
