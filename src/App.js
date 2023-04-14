@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <hr />
       <Routes>
         <Route path="/" element={<RocketPage />} />
         <Route path="/missions" element={<Missions />} />
