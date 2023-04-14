@@ -8,34 +8,22 @@ export default function MissionItems({
   id, name, description, reserved,
 }) {
   const dispatch = useDispatch();
-  if (!reserved) {
-    return (
-      <li key={id} className="mission-list">
-        <h5 className="mission-name">{name}</h5>
-        <p className="description">{description}</p>
-        <span className="status"><Badge bg="secondary">NOT A MEMBER</Badge></span>
-        <div className="join">
-          <Button
-            variant="outline-secondary"
-            onClick={() => dispatch(MemberShip(id))}
-          >
-            Join Mission
-          </Button>
-        </div>
-      </li>
-    );
-  }
+
   return (
     <li key={id} className="mission-list">
       <h5 className="mission-name">{name}</h5>
       <p className="description">{description}</p>
-      <span className="status"><Badge bg="primary">Active Member</Badge></span>
+      <span className="status">
+        <Badge bg={reserved ? 'primary' : 'secondary'}>
+          {reserved ? 'Active Member' : 'NOT A MEMBER'}
+        </Badge>
+      </span>
       <div className="join">
         <Button
-          variant="outline-danger"
+          variant={reserved ? 'outline-danger' : 'outline-secondary'}
           onClick={() => dispatch(MemberShip(id))}
         >
-          Leave Mission
+          {reserved ? 'Leave Mission' : 'Join Mission'}
         </Button>
       </div>
     </li>
