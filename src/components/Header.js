@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 import '../assets/css/Header.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import planet from '../assets/planet.png';
+import { getMissions } from '../redux/missions/missionsSlice';
 
 export default function Header() {
   const [active, setActive] = useState('rockets');
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMissions());
+  }, [dispatch]);
   return (
     <header>
       <nav>

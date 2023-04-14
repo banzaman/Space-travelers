@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Badge, Button } from 'react-bootstrap';
 import { reserveRocket } from '../redux/rockets/rocketsSlice';
 import '../assets/css/rockets.css';
 
@@ -19,7 +20,7 @@ const RocketItem = ({
           <p>
             {description}
           </p>
-          <button data-testid="reserveButton" className="reserveButton" type="button" onClick={() => (dispatch(reserveRocket(id)))}>Reserve Rocket</button>
+          <Button value="Reserve Rocket" onClick={() => (dispatch(reserveRocket(id)))}>Reserve Rocket</Button>
         </section>
       </div>
     );
@@ -31,11 +32,11 @@ const RocketItem = ({
       </section>
       <section id={id} className="rocket_details">
         <h2>{name }</h2>
-        <p className="description">
-          <span className="reservedTag">Reserved</span>
+        <p>
+          <Badge bg="primary" className="me-3">Reserved</Badge>
           {description}
         </p>
-        <button data-testid="cancelButton" className="cancelButton" type="button" onClick={() => (dispatch(reserveRocket(id)))}>Cancel Reservation</button>
+        <Button value="Reserve Rocket" variant="outline-secondary" onClick={() => (dispatch(reserveRocket(id)))}>Cancel Reservation</Button>
       </section>
     </div>
   );

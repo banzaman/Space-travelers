@@ -23,12 +23,14 @@ const missionsSlice = createSlice({
   initialState,
   reducers: {
     MemberShip: (state, action) => {
-      const newState = state.missions.forEach((mission) => {
-        if (mission.mission_id === action.payload) {
-          mission.reserved = !mission.reserved;
+      const newMission = state.missions.map((mission) => {
+        if (mission.mission_id !== action.payload) { return mission; }
+        if (mission.reserved === true) {
+          return { ...mission, reserved: false };
         }
+        return { ...mission, reserved: true };
       });
-      return newState;
+      state.missions = newMission;
     },
   },
   extraReducers: (builder) => {
@@ -37,8 +39,12 @@ const missionsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getMissions.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.missions = action.payload;
+        const newState = action.payload.map((mission) => ({ ...mission, reserved: false }));
+        return ({
+          ...state,
+          missions: newState,
+          isLoading: false,
+        });
       })
       .addCase(getMissions.rejected, (state) => {
         state.isLoading = false;
