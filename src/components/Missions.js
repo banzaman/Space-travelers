@@ -33,7 +33,6 @@ export default function Missions() {
 
   return (
     <>
-      <hr />
       <section className="mission-container">
         <div>
           <h5 className="mission-name">Mission</h5>

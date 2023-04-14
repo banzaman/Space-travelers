@@ -27,11 +27,11 @@ export default function MyProfile() {
           <h2>My Missions</h2>
           <Card>
             <ListGroup variant="flush">
-              {reservedMissions.map((mission) => (
+              {reservedMissions.length > 0 ? reservedMissions.map((mission) => (
                 <ListGroup.Item key={mission.mission_id}>
                   {mission.mission_name}
                 </ListGroup.Item>
-              ))}
+              )) : <ListGroup.Item>There is no memeber to show</ListGroup.Item> }
             </ListGroup>
           </Card>
         </Col>
@@ -39,11 +39,11 @@ export default function MyProfile() {
           <h2>My Rockets</h2>
           <Card>
             <ListGroup variant="flush">
-              {reservedRockets.map((rocket) => (
+              {reservedRockets.length > 0 ? reservedRockets.map((rocket) => (
                 <ListGroup.Item key={rocket.id}>
                   {rocket.name}
                 </ListGroup.Item>
-              ))}
+              )) : <ListGroup.Item>No reserved Rockets to show</ListGroup.Item>}
             </ListGroup>
           </Card>
         </Col>
