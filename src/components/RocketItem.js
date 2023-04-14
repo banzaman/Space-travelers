@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { reserveRocket } from '../redux/rockets/rocketsSlice';
-import '../styles/rockets.css';
+import '../assets/css/rockets.css';
 
 const RocketItem = ({
   id, name, Image, description, reserved,
