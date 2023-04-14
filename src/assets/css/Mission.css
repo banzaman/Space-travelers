@@ -1,0 +1,57 @@
+.mission-container {
+  border: 1px solid lightgray;
+}
+
+.mission-container div {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.mission-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+div h5 {
+  border-right: 1px solid lightgray;
+  margin: 0;
+  padding-bottom: 0.2em;
+}
+
+.mission-name,
+.status,
+.join {
+  width: 20%;
+  text-indent: 7px;
+}
+
+.description {
+  width: 60%;
+  text-indent: 7px;
+}
+
+.mission-list {
+  display: flex;
+  padding: 0;
+}
+
+.mission-list:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.mission-list span,
+.mission-list div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid lightgray;
+}
+
+.mission-list p {
+  border-right: 1px solid lightgray;
+  margin: 0;
+  padding-left: 0.2em;
+  padding-bottom: 0.8em;
+}
