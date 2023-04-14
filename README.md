@@ -170,9 +170,9 @@ To run tests, run the following command:
 
 👤 **Muhammed Berisso**
 
-- GitHub: [@githubhandle](https://github.com/muhammedb8826)
-- Twitter: [@twitterhandle](https://twitter.com/muhammedb8826)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/muhammed-berisso-a60783226/)
+- GitHub: [@muhammedb8826](https://github.com/muhammedb8826)
+- Twitter: [@muhammedb8826](https://twitter.com/muhammedb8826)
+- LinkedIn: [Muhammed Berisso](https://www.linkedin.com/in/muhammedb8826/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
