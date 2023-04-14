@@ -50,7 +50,7 @@ export default function Missions() {
               <div className="join">
                 <Button
                   variant={mission.reserved ? 'outline-danger' : 'outline-secondary'}
-                  onClick={() => dispatch(MemberShip({ missions, id: mission.mission_id }))}
+                  onClick={() => dispatch(MemberShip(mission.mission_id))}
                 >
                   {mission.reserved ? 'Leave Mission' : 'Join Mission' }
                 </Button>

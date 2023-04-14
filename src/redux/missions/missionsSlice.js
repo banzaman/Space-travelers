@@ -22,16 +22,13 @@ const missionsSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    MemberShip: (state, { payload }) => {
-      const newMissions = [];
-      payload.missions.forEach((mission) => {
-        if (mission.mission_id === payload.id) {
-          newMissions.push({ ...mission, reserved: !mission.reserved });
-        } else {
-          newMissions.push(mission);
+    MemberShip: (state, action) => {
+      const newState = state.missions.forEach((mission) => {
+        if (mission.mission_id === action.payload) {
+          mission.reserved = !mission.reserved;
         }
       });
-      return { ...state, missions: newMissions };
+      return newState;
     },
   },
   extraReducers: (builder) => {
