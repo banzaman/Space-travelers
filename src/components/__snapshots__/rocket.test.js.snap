@@ -23,10 +23,11 @@ exports[`Rockets component renders Rocket component 1`] = `
       Good rocket!
     </p>
     <button
-      className="reserveButton"
-      data-testid="reserveButton"
+      className="btn btn-primary"
+      disabled={false}
       onClick={[Function]}
       type="button"
+      value="Reserve Rocket"
     >
       Reserve Rocket
     </button>
