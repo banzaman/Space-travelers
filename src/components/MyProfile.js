@@ -9,6 +9,7 @@ export default function MyProfile() {
   const [reservedMissions, setReservedMission] = useState([]);
   const { rocketItems } = useSelector((state) => state.rockets);
   const [reservedRockets, setReservedRocket] = useState([]);
+  console.log(missions);
 
   useEffect(() => {
     const temp = missions.filter((mission) => mission.reserved);
@@ -19,7 +20,6 @@ export default function MyProfile() {
     const temp = rocketItems.filter((rocket) => rocket.reserved);
     setReservedRocket(temp);
   }, [rocketItems]);
-
   return (
     <Container>
       <Row>
@@ -29,7 +29,7 @@ export default function MyProfile() {
             <ListGroup variant="flush">
               {reservedMissions.length > 0 ? reservedMissions.map((mission) => (
                 <ListGroup.Item key={mission.mission_id}>
-                  {mission.mission_name}
+                  {mission.name}
                 </ListGroup.Item>
               )) : <ListGroup.Item>There is no memeber to show</ListGroup.Item> }
             </ListGroup>
