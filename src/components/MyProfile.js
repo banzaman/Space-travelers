@@ -9,7 +9,6 @@ export default function MyProfile() {
   const [reservedMissions, setReservedMission] = useState([]);
   const { rocketItems } = useSelector((state) => state.rockets);
   const [reservedRockets, setReservedRocket] = useState([]);
-  console.log(missions);
 
   useEffect(() => {
     const temp = missions.filter((mission) => mission.reserved);
